@@ -4,14 +4,14 @@ import styled from 'styled-components';
 import {motion} from "framer-motion";
 
 
-export const Section = styled.section`
+export const OtherSections = styled.section`
     width: 100%;
     height: 100vh;
     background: crimson;
 `
 
 
-export const Overlay = styled.div`
+export const AbsoluteOverlay = styled.div`
     position: absolute;
     top: 0;
     left: 0;
@@ -19,7 +19,7 @@ export const Overlay = styled.div`
     width: 100%;
 `
 
-export const ContentHeight = styled.div`
+export const MockHeightBlock = styled.div`
     height: calc(100* 1svh);
     width: 100%;
     z-index: 0;
@@ -36,15 +36,15 @@ export const StickyContainer = styled.div`
     z-index: 2;
 `
 
-export const StickySection = styled.section`
+export const RelativeContainerInSection = styled.section`
     position: relative;
 `
 
-export const Center = styled.div`
+export const RelativeContentContainer = styled.div`
     position: relative;
 `
 
-export const ListWrapper = styled.div`
+export const OverflowHiddenListWrapper = styled.div`
     position: relative;
     overflow: hidden;
     width: 300px;
@@ -53,14 +53,14 @@ export const ListWrapper = styled.div`
     border: 1px solid burlywood;
     `
 
-export const ListThumbnail = styled(motion.div)`
+export const AbsoluteList = styled(motion.div)`
     position: absolute;
     top: 0;
     display: flex;
     flex-direction: column;
     width: 100%;
 `
-export const Thumbnail = styled.div`
+export const RelativeListItem = styled.div`
     width: 300px;
     height: 200px;
     position: relative;

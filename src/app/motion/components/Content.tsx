@@ -1,11 +1,11 @@
 'use client';
 import {
-    Center, ContentHeight, ListThumbnail,
-    ListWrapper,
-    Overlay,
-    Section,
+    RelativeContentContainer, MockHeightBlock, AbsoluteList,
+    OverflowHiddenListWrapper,
+    AbsoluteOverlay,
+    OtherSections,
     StickyContainer,
-    StickySection, Thumbnail
+    RelativeContainerInSection, RelativeListItem
 } from "@/src/app/motion/components/sections.styled";
 import {useRef} from "react";
 import {useScroll, useTransform} from "framer-motion";
@@ -16,26 +16,27 @@ export const MotionContent = () => {
     const translateY = useTransform(scrollYProgress, [0, 1], [0, -1500]);
 
     return <>
-        <Section />
-        <StickySection ref={ref}>
-            <Overlay>
+        <OtherSections />
+        <RelativeContainerInSection ref={ref}>
+            <AbsoluteOverlay>
                 <StickyContainer>
-                    <Center>
-                        <ListWrapper>
-                            <ListThumbnail style={{ translateY }}>
-                                <Thumbnail style={{ background: 'crimson'}}/>
-                                <Thumbnail style={{ background: 'red'}}/>
-                                <Thumbnail style={{ background: 'blue'}}/>
-                                <Thumbnail style={{ background: 'yellow'}}/>
-                                <Thumbnail style={{ background: 'gray'}}/>
-                            </ListThumbnail>
-                        </ListWrapper>
-                    </Center>
+                    <RelativeContentContainer>
+                        <OverflowHiddenListWrapper>
+                            <AbsoluteList style={{ translateY }}>
+                                <RelativeListItem style={{ background: 'crimson'}}/>
+                                <RelativeListItem style={{ background: 'red'}}/>
+                                <RelativeListItem style={{ background: 'blue'}}/>
+                                <RelativeListItem style={{ background: 'yellow'}}/>
+                                <RelativeListItem style={{ background: 'gray'}}/>
+                            </AbsoluteList>
+                        </OverflowHiddenListWrapper>
+                    </RelativeContentContainer>
                 </StickyContainer>
-            </Overlay>
-            <ContentHeight />
-            <ContentHeight />
-            <ContentHeight />
-        </StickySection>
-        <Section /><Section /></>
+            </AbsoluteOverlay>
+            <MockHeightBlock />
+            <MockHeightBlock />
+            <MockHeightBlock />
+        </RelativeContainerInSection>
+        <OtherSections />
+    </>
 }
